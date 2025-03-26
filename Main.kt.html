@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>Main.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+.s4 { color: #7a7e85;}
+.s5 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Main.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">fun </span><span class="s1">main</span><span class="s2">() {</span>
+    <span class="s0">var </span><span class="s1">saldo </span><span class="s2">= </span><span class="s3">150.00 </span><span class="s4">// Saldo inicial</span>
+    <span class="s0">var </span><span class="s1">nome: String? </span><span class="s4">// Variável para armazenar o nome do usuário</span>
+    <span class="s0">var </span><span class="s1">extrato </span><span class="s2">= </span><span class="s5">&quot;Histórico:</span><span class="s0">\n</span><span class="s5">- Compra: R$ 30.00</span><span class="s0">\n</span><span class="s5">- Depósito: R$ 100.00</span><span class="s0">\n</span><span class="s5">- Compra: R$ 50.00</span><span class="s0">\n</span><span class="s5">&quot; </span><span class="s4">// Extrato fictício</span>
+    <span class="s0">val </span><span class="s1">senhaCorreta </span><span class="s2">= </span><span class="s3">3589 </span><span class="s4">// Senha fixa para validação</span>
+
+    <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Digite o seu nome:&quot;</span><span class="s2">)</span>
+    <span class="s1">nome </span><span class="s2">= </span><span class="s1">readLine</span><span class="s2">()</span>
+    <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Olá </span><span class="s0">$</span><span class="s1">nome</span><span class="s5">, é um prazer ter você por aqui!</span><span class="s0">\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+
+    <span class="s0">var </span><span class="s1">opcao: Int</span>
+    <span class="s0">var </span><span class="s1">senha: Int</span>
+
+    <span class="s0">do </span><span class="s2">{</span>
+        <span class="s4">// Exibir o menu de opções</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;</span><span class="s0">\n</span><span class="s5">Escolha uma opção:&quot;</span><span class="s2">)</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;1. Ver saldo&quot;</span><span class="s2">)</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;2. Ver extrato&quot;</span><span class="s2">)</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;3. Fazer saque&quot;</span><span class="s2">)</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;4. Fazer depósito&quot;</span><span class="s2">)</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;5. Fazer transferência&quot;</span><span class="s2">)</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;6. Sair&quot;</span><span class="s2">)</span>
+        <span class="s1">opcao </span><span class="s2">= </span><span class="s1">readLine</span><span class="s2">()</span><span class="s1">?</span><span class="s2">.</span><span class="s1">toIntOrNull</span><span class="s2">() </span><span class="s1">?: </span><span class="s3">0</span>
+
+        <span class="s0">when </span><span class="s2">(</span><span class="s1">opcao</span><span class="s2">) {</span>
+            <span class="s3">1 </span><span class="s2">-&gt; {</span>
+                <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Digite sua senha:&quot;</span><span class="s2">)</span>
+                <span class="s1">senha </span><span class="s2">= </span><span class="s1">readLine</span><span class="s2">()</span><span class="s1">?</span><span class="s2">.</span><span class="s1">toIntOrNull</span><span class="s2">() </span><span class="s1">?: </span><span class="s3">0</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">senha </span><span class="s2">== </span><span class="s1">senhaCorreta</span><span class="s2">) {</span>
+                    <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Seu saldo atual é: R$ </span><span class="s0">$</span><span class="s1">saldo</span><span class="s0">\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+                <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+                    <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Senha incorreta. Tente novamente.</span><span class="s0">\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+            <span class="s3">2 </span><span class="s2">-&gt; {</span>
+                <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Digite sua senha:&quot;</span><span class="s2">)</span>
+                <span class="s1">senha </span><span class="s2">= </span><span class="s1">readLine</span><span class="s2">()</span><span class="s1">?</span><span class="s2">.</span><span class="s1">toIntOrNull</span><span class="s2">() </span><span class="s1">?: </span><span class="s3">0</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">senha </span><span class="s2">== </span><span class="s1">senhaCorreta</span><span class="s2">) {</span>
+                    <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Extrato da conta:</span><span class="s0">\n$</span><span class="s1">extrato</span><span class="s5">&quot;</span><span class="s2">)</span>
+                <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+                    <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Senha incorreta. Tente novamente.</span><span class="s0">\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+            <span class="s3">3 </span><span class="s2">-&gt; {</span>
+                <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Digite sua senha:&quot;</span><span class="s2">)</span>
+                <span class="s1">senha </span><span class="s2">= </span><span class="s1">readLine</span><span class="s2">()</span><span class="s1">?</span><span class="s2">.</span><span class="s1">toIntOrNull</span><span class="s2">() </span><span class="s1">?: </span><span class="s3">0</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">senha </span><span class="s2">== </span><span class="s1">senhaCorreta</span><span class="s2">) {</span>
+                    <span class="s1">saldo </span><span class="s2">= </span><span class="s1">fazerSaque</span><span class="s2">(</span><span class="s1">saldo</span><span class="s2">, </span><span class="s1">extrato</span><span class="s2">)</span>
+                <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+                    <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Senha incorreta. Tente novamente.</span><span class="s0">\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+            <span class="s3">4 </span><span class="s2">-&gt; </span><span class="s1">saldo </span><span class="s2">= </span><span class="s1">fazerDeposito</span><span class="s2">(</span><span class="s1">saldo</span><span class="s2">, </span><span class="s1">extrato</span><span class="s2">)</span>
+            <span class="s3">5 </span><span class="s2">-&gt; {</span>
+                <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Digite sua senha:&quot;</span><span class="s2">)</span>
+                <span class="s1">senha </span><span class="s2">= </span><span class="s1">readLine</span><span class="s2">()</span><span class="s1">?</span><span class="s2">.</span><span class="s1">toIntOrNull</span><span class="s2">() </span><span class="s1">?: </span><span class="s3">0</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">senha </span><span class="s2">== </span><span class="s1">senhaCorreta</span><span class="s2">) {</span>
+                    <span class="s1">saldo </span><span class="s2">= </span><span class="s1">fazerTransferencia</span><span class="s2">(</span><span class="s1">saldo</span><span class="s2">, </span><span class="s1">extrato</span><span class="s2">)</span>
+                <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+                    <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Senha incorreta. Tente novamente.</span><span class="s0">\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+            <span class="s3">6 </span><span class="s2">-&gt; </span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;</span><span class="s0">$</span><span class="s1">nome</span><span class="s5">, foi um prazer ter você por aqui!</span><span class="s0">\n</span><span class="s5">Programa encerrado.&quot;</span><span class="s2">)</span>
+            <span class="s0">else </span><span class="s2">-&gt; </span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Opção inválida. Tente novamente.</span><span class="s0">\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+        <span class="s2">}</span>
+    <span class="s2">} </span><span class="s0">while </span><span class="s2">(</span><span class="s1">opcao </span><span class="s2">!= </span><span class="s3">6</span><span class="s2">)</span>
+<span class="s2">}</span>
+
+<span class="s0">fun </span><span class="s1">fazerDeposito</span><span class="s2">(</span><span class="s1">saldo: Double</span><span class="s2">, </span><span class="s1">extrato: String</span><span class="s2">)</span><span class="s1">: Double </span><span class="s2">{</span>
+    <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Qual o valor para depósito?&quot;</span><span class="s2">)</span>
+    <span class="s0">val </span><span class="s1">deposito </span><span class="s2">= </span><span class="s1">readLine</span><span class="s2">()</span><span class="s1">?</span><span class="s2">.</span><span class="s1">toDoubleOrNull</span><span class="s2">() </span><span class="s1">?: </span><span class="s3">0.0</span>
+    <span class="s0">if </span><span class="s2">(</span><span class="s1">deposito </span><span class="s2">&lt;= </span><span class="s3">0</span><span class="s2">) {</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Operação não autorizada. O valor deve ser maior que zero.</span><span class="s0">\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+    <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Depósito realizado com sucesso!</span><span class="s0">\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Seu saldo atualizado é: R$ </span><span class="s0">${</span><span class="s1">saldo </span><span class="s2">+ </span><span class="s1">deposito</span><span class="s0">}\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+        <span class="s0">return </span><span class="s1">saldo </span><span class="s2">+ </span><span class="s1">deposito</span>
+    <span class="s2">}</span>
+    <span class="s0">return </span><span class="s1">saldo</span>
+<span class="s2">}</span>
+
+<span class="s0">fun </span><span class="s1">fazerSaque</span><span class="s2">(</span><span class="s1">saldo: Double</span><span class="s2">, </span><span class="s1">extrato: String</span><span class="s2">)</span><span class="s1">: Double </span><span class="s2">{</span>
+    <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Qual o valor para saque?&quot;</span><span class="s2">)</span>
+    <span class="s0">val </span><span class="s1">saque </span><span class="s2">= </span><span class="s1">readLine</span><span class="s2">()</span><span class="s1">?</span><span class="s2">.</span><span class="s1">toDoubleOrNull</span><span class="s2">() </span><span class="s1">?: </span><span class="s3">0.0</span>
+    <span class="s0">if </span><span class="s2">(</span><span class="s1">saque </span><span class="s2">&lt;= </span><span class="s3">0</span><span class="s2">) {</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Operação não autorizada. O valor deve ser maior que zero.</span><span class="s0">\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+    <span class="s2">} </span><span class="s0">else if </span><span class="s2">(</span><span class="s1">saque </span><span class="s2">&gt; </span><span class="s1">saldo</span><span class="s2">) {</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Operação não autorizada. Saldo insuficiente.</span><span class="s0">\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+    <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Saque realizado com sucesso!</span><span class="s0">\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Seu saldo atualizado é: R$ </span><span class="s0">${</span><span class="s1">saldo </span><span class="s2">- </span><span class="s1">saque</span><span class="s0">}\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+        <span class="s0">return </span><span class="s1">saldo </span><span class="s2">- </span><span class="s1">saque</span>
+    <span class="s2">}</span>
+    <span class="s0">return </span><span class="s1">saldo</span>
+<span class="s2">}</span>
+
+<span class="s0">fun </span><span class="s1">fazerTransferencia</span><span class="s2">(</span><span class="s1">saldo: Double</span><span class="s2">, </span><span class="s1">extrato: String</span><span class="s2">)</span><span class="s1">: Double </span><span class="s2">{</span>
+    <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Digite o número da conta para transferência:&quot;</span><span class="s2">)</span>
+    <span class="s0">val </span><span class="s1">conta </span><span class="s2">= </span><span class="s1">readLine</span><span class="s2">()</span><span class="s1">?</span><span class="s2">.</span><span class="s1">toIntOrNull</span><span class="s2">() </span><span class="s1">?: </span><span class="s3">0</span>
+    <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Digite o valor para transferência:&quot;</span><span class="s2">)</span>
+    <span class="s0">val </span><span class="s1">transferencia </span><span class="s2">= </span><span class="s1">readLine</span><span class="s2">()</span><span class="s1">?</span><span class="s2">.</span><span class="s1">toDoubleOrNull</span><span class="s2">() </span><span class="s1">?: </span><span class="s3">0.0</span>
+    <span class="s0">if </span><span class="s2">(</span><span class="s1">transferencia </span><span class="s2">&lt;= </span><span class="s3">0</span><span class="s2">) {</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Operação não autorizada. O valor deve ser maior que zero.</span><span class="s0">\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+    <span class="s2">} </span><span class="s0">else if </span><span class="s2">(</span><span class="s1">transferencia </span><span class="s2">&gt; </span><span class="s1">saldo</span><span class="s2">) {</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Operação não autorizada. Saldo insuficiente.</span><span class="s0">\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+    <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Transferência realizada com sucesso!</span><span class="s0">\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+        <span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Seu saldo atualizado é: R$ </span><span class="s0">${</span><span class="s1">saldo </span><span class="s2">- </span><span class="s1">transferencia</span><span class="s0">}\n</span><span class="s5">&quot;</span><span class="s2">)</span>
+        <span class="s0">return </span><span class="s1">saldo </span><span class="s2">- </span><span class="s1">transferencia</span>
+    <span class="s2">}</span>
+    <span class="s0">return </span><span class="s1">saldo</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
